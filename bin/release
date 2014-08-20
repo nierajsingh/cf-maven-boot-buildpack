@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "==== compile script starting ===="
+echo "This script fails for now"
+exit 1
