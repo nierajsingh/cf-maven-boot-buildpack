@@ -1,4 +1,14 @@
 #!/bin/bash
-echo "==== compile script starting ===="
+set -e
+
+echo "==== release script starting ===="
+appDir=$1
+cacheDir=$2
+echo "appDir = " $appDir
+echo "cacheDir = " $cacheDir
+
+echo "=== env dump ===================="
+set
+
 echo "This script fails for now"
 exit 1

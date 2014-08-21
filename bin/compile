@@ -18,6 +18,7 @@ cacheDir=$2
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
+#TODO: try to reuse existing JDK and MVN install in cachedir
 rm -fr $cacheDir
 mkdir $cacheDir
 
@@ -38,6 +39,13 @@ export JAVA_HOME=$cacheDir/jdk/$javaDirName
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
+#echo "------------------- jdk contents -----------------------------------------"
+#cd ${cacheDir}/jdk
+#find . -print
+#cd $cacheDir
+#echo "pwd = " `pwd`
+#ls -laR
+#echo "------------------- jdk contents -----------------------------------------"
 
 ##############################################################################################
 # MVN setup
@@ -56,13 +64,6 @@ mvn=${cacheDir}/mvn/*/bin/mvn
 echo "----- MVN setup summary ------"
 $mvn --version
 
-echo "------------------- jdk contents -----------------------------------------"
-cd ${cacheDir}/jdk
-find . -print
-#cd $cacheDir
-#echo "pwd = " `pwd`
-#ls -laR
-echo "------------------- jdk contents -----------------------------------------"
 
 ##############################################################################################
 # mvn package
@@ -78,10 +79,9 @@ $mvn package
 ##############################################################################################
 
 cd $appDir/target
-echo "=== target dir contents looks ok ==="
+echo "=== target dir contents looks ok? ==="
 echo "PWD = " `pwd`
 find . -print
-echo "=== target dir contents looks ok ==="
+echo "=== target dir contents looks ok? ==="
 
-echo "This script fails for now"
-exit 1
+
