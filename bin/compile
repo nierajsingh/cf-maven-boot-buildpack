@@ -19,10 +19,8 @@ echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
 #TODO: try to reuse existing JDK and MVN install in cachedir
-#rm -fr $cacheDir
-#mkdir $cacheDir
-
-if 
+rm -fr $cacheDir
+mkdir $cacheDir
 
 ##############################################################################################
 # JDK setup
