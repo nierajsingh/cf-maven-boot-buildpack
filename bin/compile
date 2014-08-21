@@ -19,8 +19,10 @@ echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
 #TODO: try to reuse existing JDK and MVN install in cachedir
-rm -fr $cacheDir
-mkdir $cacheDir
+#rm -fr $cacheDir
+#mkdir $cacheDir
+
+if 
 
 ##############################################################################################
 # JDK setup
@@ -28,6 +30,8 @@ mkdir $cacheDir
 echo ===== setting up JDK =====
 cd $cacheDir
 wget $jdkUrl -O jdk.tar.gz # would be nice to use -N but it doesn't work for this url.
+
+cd ${appDir}
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
@@ -35,7 +39,7 @@ tar xzvf ${cacheDir}/jdk.tar.gz
 
 javaDirName=`ls` # there should be just one sub dir here so this shoud work to find its name.
 echo "javaDirName = " $javaDirName
-export JAVA_HOME=$cacheDir/jdk/$javaDirName
+export JAVA_HOME=$appDir/jdk/$javaDirName
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
@@ -83,5 +87,3 @@ echo "=== target dir contents looks ok? ==="
 echo "PWD = " `pwd`
 find . -print
 echo "=== target dir contents looks ok? ==="
-
-
