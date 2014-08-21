@@ -86,13 +86,15 @@ echo "==== generating start.sh file ============================================
 cd ${appDir}
 echo "#!/bin/bash" > start.sh
 echo "ls -lR" >> start.sh
+echo "export JAVA_HOME=\$HOME/jdk/${javaDirName}" >> start.sh
+echo "\$JAVA_HOME/bin/java -jar target/*.jar -Dserver.port=\${VCAP_APP_PORT}" >> start.sh
 chmod a+x start.sh
 
 cat start.sh
 
 echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
-echo "  web: \$HOME/loop.sh" >>  ${appDir}/release.yml
+echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
 #echo "  web: pwd & find . -print" >> ${appDir}/release.yml
 
 echo "--- release.yml ---"
