@@ -18,8 +18,9 @@ cacheDir=$2
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
-cd $cacheDir
-rm -fr *
+
+rm -fr $cacheDir
+mkdir $cacheDir
 
 ##############################################################################################
 # JDK setup
