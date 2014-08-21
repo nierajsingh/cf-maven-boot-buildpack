@@ -83,13 +83,17 @@ $mvn package
 
 echo "==== generating start.sh file ======================================================"
 
-java=${JAVA_HOME}/bin/java
-jarFile=`find ${appDir}/target -maxdepth 1 -name "*.jar"`
-echo "jarFile = "${jarFile}
+cd ${appDir}
+echo "#!/bin/bash" > start.sh
+echo "ls -lR" >> start.sh
+chmod a+x start.sh
 
+cat start.sh
+
+echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
-#echo "  web: ${java} -jar $jarFile" >>  ${appDir}/release.yml
-echo "  web: pwd & find . -print"
+#echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
+echo "  web: pwd & find . -print" >> ${appDir}/release.yml
 
 echo "--- release.yml ---"
 cat release.yml
