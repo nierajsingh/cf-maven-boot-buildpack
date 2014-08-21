@@ -4,5 +4,13 @@ appDir=$1
 cacheDir=$2
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
+
+cd $cacheDir
+
+echo ===== setting up JDK =====
+wget http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz -O jdk.tar.gz
+tar xzvf jdk.tar.gz
+
+
 echo "This script fails for now"
 exit 1
