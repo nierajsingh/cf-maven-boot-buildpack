@@ -31,7 +31,7 @@ wget $jdkUrl -O jdk.tar.gz
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
-javaDirName=`ls jdk*` # the name of the unzipped dir varies by jvm version, find it.
+javaDirName=`ls` # there should be just one sub dir here so this shoud work to find its name.
 echo "javaDirName = " $javaDirName
 tar xzvf ${cacheDir}/jdk.tar.gz
 
