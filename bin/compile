@@ -85,7 +85,7 @@ jarFile=`find ${appDir}/target -maxdepth 1 -name "*.jar"`
 echo "jarFile = "${jarfile}
 
 echo "default_process_type:" > ${appDir}/release.yml
-echo "  web: "${java}" -jar "$jarFile"-Dserver.port=${VCAP_APP_PORT}" >>  ${appDir}/release.yml
+echo "  web: "${java}" -jar "$jarFile" -Dserver.port=${VCAP_APP_PORT}" >>  ${appDir}/release.yml
 
 echo "--- release.yml ---"
 cat release.yml
