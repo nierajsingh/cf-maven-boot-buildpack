@@ -27,7 +27,7 @@ mkdir $cacheDir
 ##############################################################################################
 echo ===== setting up JDK =====
 cd $cacheDir
-wget http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz -O jdk.tar.gz
+wget $jdkUrl -O jdk.tar.gz
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
