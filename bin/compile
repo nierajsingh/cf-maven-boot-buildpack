@@ -41,6 +41,8 @@ export JAVA_HOME=$appDir/jdk/$javaDirName
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
+echo export JAVA_HOME=$JAVA_HOME > java_home.sh 
+
 #echo "------------------- jdk contents -----------------------------------------"
 #cd ${cacheDir}/jdk
 #find . -print
@@ -65,7 +67,6 @@ mvn=${cacheDir}/mvn/*/bin/mvn
 
 echo "----- MVN setup summary ------"
 $mvn --version
-
 
 ##############################################################################################
 # mvn package
