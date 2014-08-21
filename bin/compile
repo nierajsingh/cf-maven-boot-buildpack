@@ -53,6 +53,14 @@ mvn=${cacheDir}/mvn/*/bin/mvn
 echo "----- MVN setup summary ------"
 $mvn --version
 
+echo "------------------- jdk contents -----------------------------------------"
+cd ${cacheDir}/jdk
+find . -print
+#cd $cacheDir
+#echo "pwd = " `pwd`
+#ls -laR
+echo "------------------- jdk contents -----------------------------------------"
+
 ##############################################################################################
 # mvn package
 ##############################################################################################
@@ -62,11 +70,6 @@ cd $appDir
 echo "PWD = " `pwd`
 $mvn package
 
-#echo "------------------- what do we got now -----------------------------------------"
-#cd $cacheDir
-#echo "pwd = " `pwd`
-#ls -laR
-#echo "------------------- what do we got now -----------------------------------------"
 
 echo "This script fails for now"
 exit 1
