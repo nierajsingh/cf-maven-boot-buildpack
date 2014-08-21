@@ -6,7 +6,7 @@ set -e
 ##############################################################################################
  
 mvnUrl=http://apache.osuosl.org/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
-jdkUrl=http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz
+jdkUrl=http://download.java.net/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-x64-16_apr_2014.tar.gz?q=download/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-x64-16_apr_2014.tar.gz
 
 ##############################################################################################
 # basic setup
