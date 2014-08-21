@@ -6,11 +6,17 @@ echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
 cd $cacheDir
-
+rm -fr *
 echo ===== setting up JDK =====
 wget http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz -O jdk.tar.gz
+mkdir jdk
+cf jdk
 tar xzvf jdk.tar.gz
 
+export JAVA_HOME=$cacheDir/jdk
+
+echo "----- JDK setup ------"
+echo JAVA_HOME=$JAVA_HOME
 
 echo "This script fails for now"
 exit 1
