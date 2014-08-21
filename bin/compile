@@ -90,6 +90,11 @@ echo "jarFile = "${jarFile}
 echo "default_process_types:" > ${appDir}/release.yml
 echo "  web: ${java} -jar $jarFile" >>  ${appDir}/release.yml
 
+# WTF this is bad but let's do it anyways
+echo "==== try to run this puppy ==="
+${java} -jar $jarFile
+echo "==== try to run this puppy ==="
+
 echo "--- release.yml ---"
 cat release.yml
 echo "--- release.yml ---"
