@@ -81,19 +81,15 @@ $mvn package
 # generate release.yml
 ##############################################################################################
 
-echo "==== generating release.yml file ======================================================"
+echo "==== generating start.sh file ======================================================"
 
 java=${JAVA_HOME}/bin/java
 jarFile=`find ${appDir}/target -maxdepth 1 -name "*.jar"`
 echo "jarFile = "${jarFile}
 
 echo "default_process_types:" > ${appDir}/release.yml
-echo "  web: ${java} -jar $jarFile" >>  ${appDir}/release.yml
-
-# WTF this is bad but let's do it anyways
-echo "==== try to run this puppy ==="
-${java} -jar $jarFile
-echo "==== try to run this puppy ==="
+#echo "  web: ${java} -jar $jarFile" >>  ${appDir}/release.yml
+echo "  web: pwd & find . -print"
 
 echo "--- release.yml ---"
 cat release.yml
