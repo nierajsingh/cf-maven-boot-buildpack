@@ -25,3 +25,13 @@ Using This Buildpack
 
 You can add the buildpack URL in your `manfifest.yml` file. For example:
 
+  ---
+  applications:
+  - name: flux-boot-hello
+    memory: 512M
+    host: hello-boot
+    buildpack: https://github.com/kdvolder/cf-maven-boot-buildpack.git
+
+Or you can add it as an argument to the cf push command. For example:
+
+  cf push flux-boot-hello -b https://github.com/kdvolder/cf-maven-boot-buildpack.git
