@@ -1,4 +1,17 @@
 #!/bin/bash
+set -e
+
+##############################################################################################
+# options
+##############################################################################################
+ 
+mvnUrl=http://apache.osuosl.org/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
+jdkUrl=http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz
+
+##############################################################################################
+# basic setup
+##############################################################################################
+
 echo "==== compile script starting ===="
 appDir=$1
 cacheDir=$2
@@ -7,16 +20,41 @@ echo "cacheDir = " $cacheDir
 
 cd $cacheDir
 rm -fr *
+
+##############################################################################################
+# JDK setup
+##############################################################################################
 echo ===== setting up JDK =====
+cd $cacheDir
 wget http://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.7.0_65.tar.gz -O jdk.tar.gz
 mkdir jdk
-cf jdk
-tar xzvf jdk.tar.gz
-
+cd jdk
+echo "Unzipping to " `pwd`
+tar xzvf ${cacheDir}/jdk.tar.gz
 export JAVA_HOME=$cacheDir/jdk
 
-echo "----- JDK setup ------"
+echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
+
+##############################################################################################
+# MVN setup
+##############################################################################################
+echo ==== setting up mvn =====
+cd $cacheDir
+wget $mvnUrl -O mvn.tar.gz
+mkdir mvn
+cd mvn
+tar xzvf ${cacheDir}/mvn.tar.gz
+
+echo "----- MVN setup summary ------"
+
+##############################################################################################
+
+echo "------------------- what do we got now -----------------------------------------"
+cd $cacheDir
+echo "pwd = " `pwd`
+ls -laR
+echo "------------------- what do we got now -----------------------------------------"
 
 echo "This script fails for now"
 exit 1
