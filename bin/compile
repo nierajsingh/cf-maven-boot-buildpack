@@ -92,8 +92,8 @@ cat start.sh
 
 echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
-#echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
-echo "  web: pwd & find . -print" >> ${appDir}/release.yml
+echo "  web: \$HOME/loop.sh" >>  ${appDir}/release.yml
+#echo "  web: pwd & find . -print" >> ${appDir}/release.yml
 
 echo "--- release.yml ---"
 cat release.yml
