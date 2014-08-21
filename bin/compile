@@ -31,8 +31,11 @@ wget $jdkUrl -O jdk.tar.gz
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
+javaDirName=`ls jdk*`
+echo "javaDirName = " $javaDirName
 tar xzvf ${cacheDir}/jdk.tar.gz
-export JAVA_HOME=$cacheDir/jdk
+
+export JAVA_HOME=$cacheDir/$javaDirName
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
