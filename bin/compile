@@ -48,10 +48,19 @@ cd mvn
 tar xzvf ${cacheDir}/mvn.tar.gz
 mvn=${cacheDir}/mvn/*/bin/mvn
 
+# TODO: do we need put maven local in some place other than default?
+
 echo "----- MVN setup summary ------"
 $mvn --version
 
 ##############################################################################################
+# mvn package
+##############################################################################################
+
+echo ==== run: mvn package ==================================================================
+cd $appDir
+echo "PWD = " `pwd`
+$mvn package
 
 #echo "------------------- what do we got now -----------------------------------------"
 #cd $cacheDir
