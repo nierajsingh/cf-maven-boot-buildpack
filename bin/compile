@@ -87,3 +87,4 @@ echo "=== target dir contents looks ok? ==="
 echo "PWD = " `pwd`
 find . -print
 echo "=== target dir contents looks ok? ==="
+
