@@ -18,7 +18,6 @@ cacheDir=$2
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
-
 rm -fr $cacheDir
 mkdir $cacheDir
 
@@ -27,7 +26,7 @@ mkdir $cacheDir
 ##############################################################################################
 echo ===== setting up JDK =====
 cd $cacheDir
-wget $jdkUrl -O jdk.tar.gz
+wget $jdkUrl -O jdk.tar.gz # would be nice to use -N but it doesn't work for this url.
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
@@ -35,7 +34,7 @@ tar xzvf ${cacheDir}/jdk.tar.gz
 
 javaDirName=`ls` # there should be just one sub dir here so this shoud work to find its name.
 echo "javaDirName = " $javaDirName
-export JAVA_HOME=$cacheDir/$javaDirName
+export JAVA_HOME=$cacheDir/jdk/$javaDirName
 
 echo "----- JDK setup summary ------"
 echo JAVA_HOME=$JAVA_HOME
