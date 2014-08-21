@@ -50,7 +50,8 @@ cd mvn
 tar xzvf ${cacheDir}/mvn.tar.gz
 mvn=${cacheDir}/mvn/*/bin/mvn
 
-# TODO: do we need put maven local in some place other than default?
+# do we need put maven local in some place other than default?
+# Answer: no because it seems to work just fine with the default location.
 
 echo "----- MVN setup summary ------"
 $mvn --version
@@ -72,6 +73,15 @@ cd $appDir
 echo "PWD = " `pwd`
 $mvn package
 
+##############################################################################################
+# check if target artefact we expect exists now
+##############################################################################################
+
+cd $appDir/target
+echo "=== target dir contents looks ok ==="
+echo "PWD = " `pwd`
+find . -print
+echo "=== target dir contents looks ok ==="
 
 echo "This script fails for now"
 exit 1
