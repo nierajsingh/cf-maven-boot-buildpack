@@ -32,7 +32,7 @@ cd ${appDir}
 mkdir jdk
 cd jdk
 echo "Unzipping to " `pwd`
-tar xzvf ${cacheDir}/jdk.tar.gz
+tar xzf ${cacheDir}/jdk.tar.gz
 
 javaDirName=`ls` # there should be just one sub dir here so this shoud work to find its name.
 echo "javaDirName = " $javaDirName
