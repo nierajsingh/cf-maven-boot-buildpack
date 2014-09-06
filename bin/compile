@@ -58,7 +58,7 @@ cd $cacheDir
 wget $mvnUrl -O mvn.tar.gz
 mkdir mvn
 cd mvn
-tar xzvf ${cacheDir}/mvn.tar.gz
+tar xzf ${cacheDir}/mvn.tar.gz
 mvn=${cacheDir}/mvn/*/bin/mvn
 
 # do we need put maven local in some place other than default?
@@ -74,7 +74,7 @@ $mvn --version
 echo "==== run: mvn package ================================================================="
 cd $appDir
 echo "PWD = " `pwd`
-$mvn package
+$mvn --batch-mode package
 
 ##############################################################################################
 # generate release.yml
