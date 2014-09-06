@@ -18,15 +18,18 @@ cacheDir=$2
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 
-rm -fr $cacheDir
-mkdir $cacheDir
+mkdir -p $cacheDir
 
 ##############################################################################################
 # JDK setup
 ##############################################################################################
 echo ===== setting up JDK =====
 cd $cacheDir
-wget $jdkUrl -O jdk.tar.gz # would be nice to use -N but it doesn't work for this url.
+if [ -f jdk.tar.gz ]; then
+    echo "Found jdk in cache"
+else
+    wget $jdkUrl -O jdk.tar.gz # would be nice to use -N but it doesn't work for this url.
+fi
 
 cd ${appDir}
 mkdir jdk
@@ -55,10 +58,15 @@ echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 ##############################################################################################
 echo ==== setting up mvn =====
 cd $cacheDir
-wget $mvnUrl -O mvn.tar.gz
-mkdir mvn
-cd mvn
-tar xzf ${cacheDir}/mvn.tar.gz
+if [ -f mvn.tar.gz ]; then
+    echo "Found mvn in cache"
+else
+    wget $mvnUrl -O mvn.tar.gz
+    mkdir mvn
+    cd mvn
+    tar xzf ${cacheDir}/mvn.tar.gz
+fi
+
 mvn=${cacheDir}/mvn/*/bin/mvn
 
 # do we need put maven local in some place other than default?
@@ -74,7 +82,7 @@ $mvn --version
 echo "==== run: mvn package ================================================================="
 cd $appDir
 echo "PWD = " `pwd`
-$mvn --batch-mode package
+$mvn --batch-mode clean package
 
 ##############################################################################################
 # generate release.yml
