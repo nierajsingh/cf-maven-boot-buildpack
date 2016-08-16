@@ -16,13 +16,17 @@ echo "==== compile script starting ===="
 workDir=`pwd`
 appDir=$1
 cacheDir=$2
+scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "workDir = " $workDir
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
+echo "scriptDir = " $scriptDir
 echo "=== ls -la ======="
 ls -la
-echo "=== which release ==="
-which release
+echo "=== ls -la $scriptDir ==="
+ls -la $scriptDir
+echo "=== ls -la buildpackDir"
+ls -la ${scriptDir}/..
 echo "====================="
 
 mkdir -p $cacheDir
