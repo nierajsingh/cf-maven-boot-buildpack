@@ -72,7 +72,7 @@ echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 
 profileFile=${appDir}/.profile
 touch ${profileFile}
-echo export JAVA_HOME=$JAVA_HOME >> ${profileFile}
+echo export JAVA_HOME=${HOME}/${javaDirName} >> ${profileFile}
 echo export KDV_TEST=kris-test >> ${profileFile}
 
 ##############################################################################################
