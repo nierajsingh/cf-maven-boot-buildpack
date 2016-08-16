@@ -118,7 +118,7 @@ cd ${appDir}
 cp ${buildpackDir}/start.sh start.sh
 chmod a+x start.sh
 
-cat start.sh
+#cat start.sh
 
 echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
