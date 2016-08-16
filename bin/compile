@@ -19,6 +19,9 @@ cacheDir=$2
 echo "workDir = " $workDir
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
+echo "=== ls -la ======="
+ls -la
+echo "=================="
 
 mkdir -p $cacheDir
 
