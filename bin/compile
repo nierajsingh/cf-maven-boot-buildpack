@@ -17,6 +17,8 @@ workDir=`pwd`
 appDir=$1
 cacheDir=$2
 scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+buildpackDir=${scriptDir}/..
+
 echo "workDir = " $workDir
 echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
@@ -113,12 +115,7 @@ echo "==== generating start.sh file ============================================
 
 cd ${appDir}
 
-echo "#!/bin/bash" > start.sh
-echo "echo STARTING JAVA APP" >> start.sh
-echo "echo KDV_TEST=\$KDV_TEST" >> start.sh
-echo "echo VCAP_APPLICATION=\$VCAP_APPLICATION" >> start.sh
-echo "export JAVA_HOME=\$HOME/jdk/${javaDirName}" >> start.sh
-echo "\$JAVA_HOME/bin/java -jar target/*.jar" >> start.sh
+cp ${buildpackDir}/start.sh start.sh
 chmod a+x start.sh
 
 cat start.sh
