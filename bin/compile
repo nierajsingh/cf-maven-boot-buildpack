@@ -93,9 +93,8 @@ echo "==== generating start.sh file ============================================
 
 cd ${appDir}
 echo "#!/bin/bash" > start.sh
-#echo "ls -lR" >> start.sh
+echo "ls -lR" >> start.sh
 echo "export JAVA_HOME=\$HOME/jdk/${javaDirName}" >> start.sh
-#echo "set" >> start.sh
 echo "***** STARTING JAVA APP *******" >> start.sh
 echo "echo \$JAVA_HOME/bin/java -Dserver.port=\${VCAP_APP_PORT} -jar target/*.jar" >> start.sh
 echo "\$JAVA_HOME/bin/java -Dserver.port=\${VCAP_APP_PORT} -jar target/*.jar" >> start.sh
@@ -105,8 +104,8 @@ cat start.sh
 
 echo "==== generating release.yml file ==================================================="
 echo "default_process_types:" > ${appDir}/release.yml
-echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
-#echo "  web: pwd & find . -print" >> ${appDir}/release.yml
+#echo "  web: \$HOME/start.sh" >>  ${appDir}/release.yml
+echo "  web: echo is-this-running" >> ${appDir}/release.yml
 
 echo "--- release.yml ---"
 cat release.yml
