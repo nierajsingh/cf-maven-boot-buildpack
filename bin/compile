@@ -21,7 +21,9 @@ echo "appDir = " $appDir
 echo "cacheDir = " $cacheDir
 echo "=== ls -la ======="
 ls -la
-echo "=================="
+echo "=== which release ==="
+which release
+echo "====================="
 
 mkdir -p $cacheDir
 
