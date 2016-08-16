@@ -5,7 +5,7 @@ set -e
 # options
 ##############################################################################################
  
-mvnUrl=http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+mvnUrl=http://www-us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 jdkUrl=http://jdk-distros.cfapps.io/jdk-8u101-linux-x64.tar.gz
 
 ##############################################################################################
