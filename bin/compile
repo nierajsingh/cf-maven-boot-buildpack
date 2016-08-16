@@ -68,12 +68,10 @@ echo export JAVA_HOME=$JAVA_HOME > java_home.sh
 # Set env vars for the app's runtime
 ##############################################################################################
 
-profileDir=${appDir}/.profile.d
-mkdir -p ${profileDir}
-echo export JAVA_HOME=$JAVA_HOME > ${profileDir}/java_home.sh
-echo export KDV_TEST=kris-test > ${profileDir}/test.sh
-
-chmod a+x ${profileDir}/*
+profileFile=${appDir}/.profile
+touch ${profileFile}
+echo export JAVA_HOME=$JAVA_HOME >> ${profileFile}
+echo export KDV_TEST=kris-test >> ${profileFile}
 
 ##############################################################################################
 # MVN setup
