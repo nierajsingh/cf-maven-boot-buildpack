@@ -73,6 +73,8 @@ mkdir -p ${profileDir}
 echo export JAVA_HOME=$JAVA_HOME > ${profileDir}/java_home.sh
 echo export KDV_TEST=kris-test > ${profileDir}/test.sh
 
+chmod a+x ${profileDir}/*
+
 ##############################################################################################
 # MVN setup
 ##############################################################################################
