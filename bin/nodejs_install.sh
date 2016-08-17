@@ -28,3 +28,5 @@ echo "Node version: " `./bin/node -v`
 echo "NPM version: " `./bin/npm -v`
 
 ./bin/npm install orion
+./bin/npm start orion
+
